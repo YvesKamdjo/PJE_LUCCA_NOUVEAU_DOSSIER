@@ -1,0 +1,78 @@
+*
+{
+	font-family: Verdana;
+}
+
+body {
+		margin-top: 80px;
+		margin-right: 40px;
+		margin-bottom: 10px;
+		margin-left: 70px;
+	}
+
+#image-recherche
+{
+ position: absolute;
+ top: 20px;
+ right: 50%;
+}
+#rechercher-reservation
+{
+ margin-bottom: 4px;
+ border-bottom:1px dotted grey;
+}
+
+#resultat
+{
+border:0px;
+background-color: #9FC1DB;
+text-align:justify;
+}
+#une-reservation
+{
+border-bottom:1px solid grey;
+}
+span.gauche
+{
+ width:90%;
+ float:left;
+}
+span.droit
+{
+ width:10%;
+ float:rigth;
+}
+#titre-reservation
+{
+text-decoration:underline;
+color:blue;
+}
+span.reservation
+{
+color:grey;
+}
+#nom
+{
+font-weight:bold;
+}
+#organisateur
+{
+font-weight:bold;
+}
+#telephone
+{
+font-weight:bold;
+}
+#disposition
+{
+font-weight:bold;
+}
+#nbre-participants
+{
+font-weight:bold;
+}
+#date
+{
+color:green;
+font-style:italic;
+}

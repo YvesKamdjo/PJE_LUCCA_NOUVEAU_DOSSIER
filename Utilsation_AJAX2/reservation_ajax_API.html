@@ -34,8 +34,8 @@
 		   html[i++]='<div id="resultat">Reservation du <span id="dateDebut"><b>'+ donnee.startDate +'</b></span> au <span id="dateFin"><b>'+donnee.endDate+'</span></div>';
 		   html[i++]='<div><span id="reservation">Salle:<span id="salle">'+donnee.id+'</span></div>' ;
 		   html[i++]='<div ><span id="reservation">Qui: </span> <span id="nom">'+donnee.fields[0].value+'</span></div>';
-		   html[i++]='<div><span id="reservation">Organisateur: </span> <span id="organisateur">'+donnee.fields[1].value+'</span></div>';
-		   html[i++]='<div><span id="reservation">Telephone: </span> <span id="telephone">'+donnee.fields[2].value +'</span></div>';
+		   html[i++]='<div><span id="reservation">Organisateur: </span> <span id="organisateur">'+donnee.fields[2].value+'</span></div>';
+		   html[i++]='<div><span id="reservation">Telephone: </span> <span id="telephone">'+donnee.fields[1].value +'</span></div>';
 		   html[i++]='<div><span id="reservation">Disposition: </span> <span id="disposition">'+donnee.fields[3].value+'</span></div>';
 		   html[i++]='<div><span id="reservation">Nb de participants: </span> <span id="nbre-participants">'+donnee.fields[4].value+'</span></div>';
 		   html[i++]='<div><span id="reservation">Entite: </span> <span id="entite">'+donnee.fields[5].value+'</span></div>';
@@ -47,13 +47,21 @@
 		   }
 		  }	
 	    var objetAJAX= new XMLHttpRequest();
-	    var fonctionOTOT;
-	    var par;
-	    objetAJAX.open('GET','bookings2.js',false);//ouverture de la page contenant le flux de l'API
+		var objetAJAX_Flux= new XMLHttpRequest();
+		var tokenBRUT;
+		var tokenEVAL;
+	    var tokenPROPRE;
+	    var fluxAPI;
+	    objetAJAX.open('GET','http://pluginoutlookomnicom.urbaonline.com/api/v1/authentication/getToken?login=yves&password=urba2012',false);//ouverture de la page contenant le flux de l'API
 	    objetAJAX.send(null);
-	    fonctionOTOT=objetAJAX.responseText;
-	    //console.log(fonctionOTOT);//ça marche bien, mais je n'arrive pas à l'exécuter avec eval()
-	    eval(fonctionOTOT);
+	    tokenBRUT=objetAJAX.responseText;
+		tokenEVAL= eval(tokenBRUT);
+		console.log(tokenEVAL);
+	    tokenPROPRE= tokenEVAL.Token;
+		objetAJAX_Flux.open('GET','http://pluginoutlookomnicom.urbaonline.com/api/v1/bookings?Token='+tokenPROPRE+'&callback=OTOT', false);
+		objetAJAX_Flux.send(null);
+		fluxAPI=objetAJAX_Flux.responseText;
+		console.log(fluxAPI);
 	</script>
  </body>
 </html>
