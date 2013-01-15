@@ -46,13 +46,25 @@
 		   j++;
 		   }
 		  }	
+		  /*var url='http://pluginoutlookomnicom.urbaonline.com/api/v1/authentication/getToken?login=yves&password=urba2012';
+		  var tokenAPI = {};
+          var jsonhttp = new XMLHttpRequest();
+          jsonhttp.open("GET", url, true);
+          jsonhttp.onreadystatechange = function () {
+          if (jsonhttp.readyState == 4 && jsonhttp.status == 200){
+              //tokenAPI = JSON.parse(jsonhttp.responseText);
+			  tokenAPI= jsonhttp.responseText;
+              }
+           };*/
+         jsonhttp.send(null);
+		 console.log(tokenAPI);
 	    var objetAJAX= new XMLHttpRequest();
 		var objetAJAX_Flux= new XMLHttpRequest();
 		var tokenBRUT;
 		var tokenEVAL;
 	    var tokenPROPRE;
 	    var fluxAPI;
-	    objetAJAX.open('GET','http://pluginoutlookomnicom.urbaonline.com/api/v1/authentication/getToken?login=yves&password=urba2012',false);//ouverture de la page contenant le flux de l'API
+	    objetAJAX.open('GET','http://pluginoutlookomnicom.urbaonline.com/api/v1/authentication/getToken?login=yves&password=urba2012',true);//ouverture de la page contenant le flux de l'API
 	    objetAJAX.send(null);
 	    tokenBRUT=objetAJAX.responseText;
 		tokenEVAL= eval(tokenBRUT);
